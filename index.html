@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XP Nostalgia Portal</title>
+    <!-- Windows XP CSS Kütüphanesi -->
+    <link rel="stylesheet" href="https://unpkg.com/xp.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="desktop">
+    <!-- 1. Pencere: Mesaj Bırak (Ziyaretçi Defteri) -->
+    <div class="window" id="msg-window" style="width: 350px; position: absolute; top: 40px; left: 40px; z-index: 10;">
+        <div class="title-bar">
+            <div class="title-bar-text">Mesaj Gönder</div>
+            <div class="title-bar-controls">
+                <button aria-label="Minimize"></button>
+                <button aria-label="Maximize"></button>
+                <button aria-label="Close"></button>
+            </div>
+        </div>
+        <div class="window-body">
+            <p>Ziyaretçi defterine bir not bırakın!</p>
+            <form id="contact-form">
+                <div class="field-row-stacked" style="width: 100%;">
+                    <label for="name">İsminiz:</label>
+                    <input id="name" type="text" placeholder="Adınız..." required />
+                </div>
+                <div class="field-row-stacked" style="width: 100%; margin-top: 10px;">
+                    <label for="message">Mesajınız:</label>
+                    <textarea id="message" rows="4" placeholder="Bir şeyler yazın..." required></textarea>
+                </div>
+                <div class="field-row" style="justify-content: flex-end; margin-top: 10px;">
+                    <button type="submit">Gönder</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- 2. Pencere: WinXP Media Player -->
+    <div class="window" id="music-window" style="width: 300px; position: absolute; top: 100px; right: 50px; z-index: 5;">
+        <div class="title-bar">
+            <div class="title-bar-text">Media Player</div>
+            <div class="title-bar-controls">
+                <button aria-label="Minimize"></button>
+                <button aria-label="Maximize"></button>
+                <button aria-label="Close"></button>
+            </div>
+        </div>
+        <div class="window-body">
+            <div class="player-display">
+                <div id="track-name">Track 1 - Yükleniyor...</div>
+                <div class="visualizer">
+                    <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+                </div>
+            </div>
+            <div class="field-row" style="justify-content: center; margin-top: 10px;">
+                <button id="prev">Prev</button>
+                <button id="play-pause">Play</button>
+                <button id="next">Next</button>
+            </div>
+            <div class="field-row" style="margin-top: 10px;">
+                <label>Ses:</label>
+                <input type="range" min="0" max="100" value="50" id="volume">
+            </div>
+            <ul class="tree-view" style="margin-top: 10px; height: 120px; overflow-y: auto;" id="playlist">
+                <!-- Şarkılar buraya JS ile dolacak -->
+            </ul>
+        </div>
+    </div>
+
+    <!-- Masaüstü İkonu: Admin Paneli (Giriş için) -->
+    <div class="icon" onclick="openAdmin()" style="position: absolute; bottom: 80px; left: 20px; text-align: center; cursor: pointer;">
+        <img src="https://winxp.vercel.app/icons/my-computer.png" style="width: 32px; display: block; margin: 0 auto;">
+        <span style="color: white; font-size: 11px; text-shadow: 1px 1px 2px black;">Admin Girişi</span>
+    </div>
+
+    <!-- Görev Çubuğu -->
+    <div class="taskbar">
+        <button class="start-button">
+            <img src="https://winxp.vercel.app/start-button.png" alt="start">
+            <span>Başlat</span>
+        </button>
+        <div class="taskbar-divider"></div>
+        <div class="taskbar-apps">
+            <div class="taskbar-item active">Mesaj Gönder</div>
+            <div class="taskbar-item">Media Player</div>
+        </div>
+        <div class="taskbar-time" id="clock">12:00</div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

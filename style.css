@@ -1,0 +1,193 @@
+/* Temel Stil Ayarları */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+    font-family: "Tahoma", "Geneva", sans-serif;
+    background: #008080 url('https://images.wallpapersden.com/image/download/pixel-art-scenery-sunset_bG5lZ2mUmZqaraWkpJRmbmdlrWZmZ2U.jpg') no-repeat center center fixed;
+    background-size: cover;
+    cursor: url('https://winxp.vercel.app/cursors/normal.cur'), auto;
+}
+
+/* Hareketli Bulutlar (Pixel Art Animation) */
+.clouds-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.cloud {
+    position: absolute;
+    width: 150px;
+    height: auto;
+    opacity: 0.6;
+    animation: moveClouds linear infinite;
+}
+
+@keyframes moveClouds {
+    from { transform: translateX(-200px); }
+    to { transform: translateX(110vw); }
+}
+
+/* Pencere ve İkon Güzelleştirmeleri */
+.window {
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    z-index: 10;
+}
+
+.icon:hover {
+    background: rgba(255,255,255,0.2);
+    border: 1px dotted white;
+}
+
+.icon span {
+    display: inline-block;
+    padding: 2px 5px;
+}
+
+#desktop {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    padding-top: 10px;
+}
+
+/* Görev Çubuğu (Taskbar) */
+.taskbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 30px;
+    background: linear-gradient(to bottom, #245edb 0%, #3f8cf3 9%, #245edb 18%, #245edb 92%, #333 100%);
+    display: flex;
+    align-items: center;
+    padding: 0 0 0 0;
+    z-index: 1000;
+    box-shadow: inset 0 1px 1px #fff;
+}
+
+.start-button {
+    height: 100%;
+    background: linear-gradient(to bottom, #388e3c 0%, #4caf50 50%, #388e3c 100%);
+    color: white;
+    font-weight: bold;
+    font-style: italic;
+    border: none;
+    border-radius: 0 10px 10px 0;
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.3);
+    font-size: 14px;
+}
+
+.start-button img {
+    height: 18px;
+    margin-right: 5px;
+}
+
+.taskbar-divider {
+    width: 2px;
+    height: 80%;
+    background: rgba(0,0,0,0.2);
+    margin: 0 10px;
+}
+
+.taskbar-apps {
+    display: flex;
+    gap: 5px;
+    flex-grow: 1;
+}
+
+.taskbar-item {
+    background: #3c81f3;
+    color: white;
+    padding: 2px 10px;
+    border-radius: 3px;
+    font-size: 11px;
+    border: 1px solid #1a4da0;
+    min-width: 100px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.taskbar-item.active {
+    background: #1e52b7;
+}
+
+.taskbar-time {
+    background: #0997ff;
+    color: white;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    font-size: 12px;
+    border-left: 1px solid #085cb5;
+    box-shadow: inset 2px 0 5px rgba(0,0,0,0.2);
+}
+
+/* Media Player Ekranı */
+.player-display {
+    background: #000;
+    color: #0f0;
+    padding: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    border: 2px inset #fff;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+#track-name {
+    font-size: 12px;
+    margin-bottom: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.visualizer {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 2px;
+    height: 20px;
+}
+
+.bar {
+    width: 4px;
+    background: #0f0;
+    height: 5px;
+    animation: bounce 0.5s infinite alternate;
+}
+
+.bar:nth-child(2) { animation-delay: 0.1s; }
+.bar:nth-child(3) { animation-delay: 0.2s; }
+.bar:nth-child(4) { animation-delay: 0.3s; }
+
+@keyframes bounce {
+    from { height: 2px; }
+    to { height: 15px; }
+}
+
+/* Kaydırma Çubuğu Özelleştirme */
+::-webkit-scrollbar {
+    width: 16px;
+}
+
+::-webkit-scrollbar-track {
+    background: #d4d0c8;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #d4d0c8;
+    border: 2px solid;
+    border-color: #ffffff #808080 #808080 #ffffff;
+}
